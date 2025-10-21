@@ -1,0 +1,22 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: your id
+
+            client-secret: secret
+            scope:
+              - openid
+              - profile
+              - email
+            # This line links this registration to the provider block defined below.
+            provider: google
+        provider:
+          google:
+            authorization-uri: https://accounts.google.com/o/oauth2/v2/auth
+            token-uri: https://oauth2.googleapis.com/token
+            user-info-uri: https://www.googleapis.com/oauth2/v3/userinfo
+            # 'sub' is the standard attribute for the user's unique ID from Google
+            user-name-attribute: sub
